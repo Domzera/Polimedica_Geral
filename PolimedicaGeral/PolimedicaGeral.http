@@ -1,0 +1,48 @@
+@PolimedicaGeral_HostAddress = http://localhost:5246
+
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
+Accept: application/json
+
+###
+
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/8/12
+Accept: application/json
+
+###
+
+POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Cliente": "Luiz Célio",
+  "Cidade": "Aparecida",
+  "Bairro": "Centro",
+  "Observação": "Observação importante",
+  "Cartao": 100.00,
+  "Vendedor": "Leticia",
+  "Numero": "ORç:12345",
+  "Pagamento": 20.00,
+  "Troco": 10.00,
+  "Responsavel": "Alice"
+}
+
+###
+PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/6
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Cliente": "Luiz Célio Gomes Filho",
+  "Cidade": "Roseira",
+  "Bairro": "Vila Velha",
+  "Observação": "Observação importante alterada",
+  "Cartao": 150.00,
+  "Vendedor": "alice",
+  "Numero": "ORÇ:12345",
+  "Pagamento": 25.00,
+  "Troco": 5.00,
+  "Responsavel": "Leticia"
+}
+
+###
