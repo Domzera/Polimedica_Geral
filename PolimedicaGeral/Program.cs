@@ -25,6 +25,9 @@ builder.Services.AddDbContext<PolimedicaGeralDBContext>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapGet("/pagina", () => Results.File("index.html", "text/html"));
 
 app.UseHttpsRedirection();
 app.UseRouting();

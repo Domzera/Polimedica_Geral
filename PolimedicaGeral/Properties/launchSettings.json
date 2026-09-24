@@ -12,9 +12,6 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "polimedica/roteiro",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7107;http://localhost:5246"
     }
