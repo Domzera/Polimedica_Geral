@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/8/11
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/10/01
 Accept: application/json
 
 ###
@@ -15,6 +15,26 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "Cliente": "Luiz Célio",
+  "Cidade": "Aparecida",
+  "Bairro": "Centro",
+  "Observação": "Observação importante",
+  "Cartao": 100.00,
+  "Vendedor": "Leticia",
+  "Numero": "ORç:12345",
+  "Pagamento": 20.00,
+  "Troco": 10.00,
+  "Responsavel": "Alice"
+}
+
+### Com data diferente da de hoje
+
+POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Data": "2026-10-01",
   "Cliente": "Luiz Célio",
   "Cidade": "Aparecida",
   "Bairro": "Centro",

@@ -25,7 +25,7 @@ namespace PolimedicaGeral.Repository
             {
                 var novoRoteiro = new Roteiro
                 {
-                    Data = DateOnly.FromDateTime(DateTime.Now),
+                    Data = roteiro.Data ??  DateOnly.FromDateTime(DateTime.Now),
                     Cliente = await _checkAddRoteiro.CheckRoteiro(roteiro.Cliente,"Cliente") == Results.Ok() ?
                         roteiro.Cliente : null!,
                     Cidade = await _checkAddRoteiro.CheckRoteiro(roteiro.Cidade,"Cidade") == Results.Ok() ?
