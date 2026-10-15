@@ -10,7 +10,7 @@ namespace PolimedicaGeral.Models
         public string Cliente { get; set; } = null!;
         public string Cidade { get; set; } = null!;
         public string Bairro { get; set; } = null!;
-        public string Observação { get; set; } = null!;
+        public string Observacao { get; set; } = null!;
         [Precision(18, 2)]
         public Decimal Cartao { get; set; }
         public string Vendedor { get; set; } = null!;

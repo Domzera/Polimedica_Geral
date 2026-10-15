@@ -5,60 +5,92 @@
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
-<br>
-<br>
-<p>
-    @PolimedicaGeral_HostAddress = http://localhost:5246
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <br>
+    <br>
+    <p>
+        @PolimedicaGeral_HostAddress = 192.168.1.82
 
-GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
-Accept: application/json
+    </p>
+    <br />
+    <p>
 
-###
+        GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro<br />
+        Accept: application/json
 
-GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/8/12
-Accept: application/json
+    </p>
+    <br />
+    <p>
 
-###
+        GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/8/12<br />
+        Accept: application/json
 
-POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
-Accept: application/json
-Content-Type: application/json
+    </p>
+    <br />
+    <p>
 
-{
-  "Cliente": "Luiz Célio",
-  "Cidade": "Aparecida",
-  "Bairro": "Centro",
-  "Observação": "Observação importante",
-  "Cartao": 100.00,
-  "Vendedor": "Leticia",
-  "Numero": "ORç:12345",
-  "Pagamento": 20.00,
-  "Troco": 10.00,
-  "Responsavel": "Alice"
-}
+        POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro<br />
+        Accept: application/json<br />
+        Content-Type: application/json<br />
+        <br />
+        {<br />
+        "Cliente": "Luiz Célio",<br />
+        "Cidade": "Aparecida",<br />
+        "Bairro": "Centro",<br />
+        "Observação": "Observação importante",<br />
+        "Cartao": 100.00,<br />
+        "Vendedor": "Leticia",<br />
+        "Numero": "ORç:12345",<br />
+        "Pagamento": 20.00,<br />
+        "Troco": 10.00,<br />
+        "Responsavel": "Alice"<br />
+        }<br />
+        <br />
+    </p>
+    <br />
+    <p>
 
-###
-PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/6
-Accept: application/json
-Content-Type: application/json
+        POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro<br />
+        Accept: application/json<br />
+        Content-Type: application/json<br />
+        <br />
+        {<br />
+        "Data": "2026-10-01",<br />
+        "Cliente": "Luiz Célio",<br />
+        "Cidade": "Aparecida",<br />
+        "Bairro": "Centro",<br />
+        "Observação": "Observação importante",<br />
+        "Cartao": 100.00,<br />
+        "Vendedor": "Leticia",<br />
+        "Numero": "ORç:12345",<br />
+        "Pagamento": 20.00,<br />
+        "Troco": 10.00,<br />
+        "Responsavel": "Alice"<br />
+        }<br />
+        <br />
+    </p>
+    <br />
+    <p>
 
-{
-  "Cliente": "Luiz Célio Gomes Filho",
-  "Cidade": "Roseira",
-  "Bairro": "Vila Velha",
-  "Observação": "Observação importante alterada",
-  "Cartao": 150.00,
-  "Vendedor": "alice",
-  "Numero": "ORÇ:12345",
-  "Pagamento": 25.00,
-  "Troco": 5.00,
-  "Responsavel": "Leticia"
-}
-
-###
-</p>
+        PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/6<br />
+        Accept: application/json<br />
+        Content-Type: application/json<br />
+        <br />
+        {<br />
+        "Cliente": "Luiz Célio Gomes Filho",<br />
+        "Cidade": "Roseira",<br />
+        "Bairro": "Vila Velha",<br />
+        "Observação": "Observação importante alterada",<br />
+        "Cartao": 150.00,<br />
+        "Vendedor": "alice",<br />
+        "Numero": "ORÇ:12345",<br />
+        "Pagamento": 25.00,<br />
+        "Troco": 5.00,<br />
+        "Responsavel": "Leticia"<br />
+        }<br />
+        <br />
+    </p>
 
 </body>
 </html>

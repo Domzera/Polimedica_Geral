@@ -32,8 +32,8 @@ namespace PolimedicaGeral.Repository
                         roteiro.Cidade : null!,
                     Bairro = await _checkAddRoteiro.CheckRoteiro(roteiro.Bairro,"Bairro") == Results.Ok() ?
                        roteiro.Bairro : null!,
-                    Observação = await _checkAddRoteiro.CheckRoteiro(roteiro.Observação,"Observação") == Results.Ok() ?
-                        roteiro.Observação : null!,
+                    Observacao = await _checkAddRoteiro.CheckRoteiro(roteiro.Observacao,"Observação") == Results.Ok() ?
+                        roteiro.Observacao : null!,
                     Cartao = roteiro.Cartao,
                     Vendedor = await _checkAddRoteiro.CheckRoteiro(roteiro.Vendedor,"Vendedor") == Results.Ok() ?
                         roteiro.Vendedor : null!,
@@ -111,7 +111,7 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Cliente = _checaUpdate.CheckUpdateString(roteiroVelho.Cliente, roteiroAtual.Cliente);
                     roteiroVelho.Cidade = _checaUpdate.CheckUpdateString(roteiroVelho.Cidade, roteiroAtual.Cidade)!;
                     roteiroVelho.Bairro = _checaUpdate.CheckUpdateString(roteiroVelho.Bairro, roteiroAtual.Bairro)!;
-                    roteiroVelho.Observação = _checaUpdate.CheckUpdateString(roteiroVelho.Observação, roteiroAtual.Observação);
+                    roteiroVelho.Observacao = _checaUpdate.CheckUpdateString(roteiroVelho.Observacao, roteiroAtual.Observacao);
                     roteiroVelho.Cartao = _checaUpdate.CheckUpdateNumber(roteiroVelho.Cartao, roteiroAtual.Cartao);
                     roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor, roteiroAtual.Vendedor)!;
                     roteiroVelho.Numero = _checaUpdate.CheckUpdateString(roteiroVelho.Numero, roteiroAtual.Numero)!;

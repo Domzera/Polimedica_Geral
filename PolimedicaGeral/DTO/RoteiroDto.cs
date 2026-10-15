@@ -8,7 +8,7 @@ namespace PolimedicaGeral.DTO
         public string? Cliente { get; set; }
         public string? Cidade { get; set; }
         public string? Bairro { get; set; }
-        public string? Observação { get; set; }
+        public string? Observacao { get; set; }
         [Precision(18, 2)]
         public Decimal Cartao { get; set; }
         public string? Vendedor { get; set; }
