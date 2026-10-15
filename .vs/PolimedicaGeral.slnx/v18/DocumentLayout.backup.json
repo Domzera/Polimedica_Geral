@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\repository\\roteirorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\repository\\roteirorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\models\\roteiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\models\\roteiro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\polimedicageral.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\polimedicageral.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\dto\\roteirodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\dto\\roteirodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 816,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,40 +54,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "PolimedicaGeral\\wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\wwwroot\\index.html",
-              "RelativeToolTip": "PolimedicaGeral\\wwwroot\\index.html",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-10-15T13:24:52.749Z",
+              "DocumentIndex": 1,
+              "Title": "Roteiro.cs",
+              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Models\\Roteiro.cs",
+              "RelativeDocumentMoniker": "PolimedicaGeral\\Models\\Roteiro.cs",
+              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Models\\Roteiro.cs",
+              "RelativeToolTip": "PolimedicaGeral\\Models\\Roteiro.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA0wBAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T19:36:29.231Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Program.cs",
-              "RelativeDocumentMoniker": "PolimedicaGeral\\Program.cs",
-              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Program.cs",
-              "RelativeToolTip": "PolimedicaGeral\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB0AAAANAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "RoteiroDto.cs",
+              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\DTO\\RoteiroDto.cs",
+              "RelativeDocumentMoniker": "PolimedicaGeral\\DTO\\RoteiroDto.cs",
+              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\DTO\\RoteiroDto.cs",
+              "RelativeToolTip": "PolimedicaGeral\\DTO\\RoteiroDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-15T13:23:15.923Z"
+              "WhenOpened": "2026-10-15T19:36:19.389Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PolimedicaGeral.http",
-              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\PolimedicaGeral.http",
-              "RelativeDocumentMoniker": "PolimedicaGeral\\PolimedicaGeral.http",
-              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\PolimedicaGeral.http",
-              "RelativeToolTip": "PolimedicaGeral\\PolimedicaGeral.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-10-15T13:19:11.655Z"
+              "DocumentIndex": 0,
+              "Title": "RoteiroRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Repository\\RoteiroRepository.cs",
+              "RelativeDocumentMoniker": "PolimedicaGeral\\Repository\\RoteiroRepository.cs",
+              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\Repository\\RoteiroRepository.cs",
+              "RelativeToolTip": "PolimedicaGeral\\Repository\\RoteiroRepository.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAmwHsAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T19:03:42.766Z",
+              "EditorCaption": ""
             }
           ]
         }
