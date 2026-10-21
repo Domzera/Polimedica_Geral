@@ -23,7 +23,7 @@
     <br />
     <p>
 
-        GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/8/12<br />
+        GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/{data}<br />
         Accept: application/json
 
     </p>
@@ -38,12 +38,13 @@
         "Cliente": "Luiz Célio",<br />
         "Cidade": "Aparecida",<br />
         "Bairro": "Centro",<br />
-        "Observação": "Observação importante",<br />
+        "Observacao": "Observação importante",<br />
         "Cartao": 100.00,<br />
+        "LojaPolimedica": "Loja",<br />
+        "PedidoNf": "Orç:13789",<br />
+        "Dinheiro": 127.5,<br />
+        "Troco": 2.50,<br />
         "Vendedor": "Leticia",<br />
-        "Numero": "ORç:12345",<br />
-        "Pagamento": 20.00,<br />
-        "Troco": 10.00,<br />
         "Responsavel": "Alice"<br />
         }<br />
         <br />
@@ -56,16 +57,16 @@
         Content-Type: application/json<br />
         <br />
         {<br />
-        "Data": "2026-10-01",<br />
         "Cliente": "Luiz Célio",<br />
+        "Data": "2026-10-17",<br />
         "Cidade": "Aparecida",<br />
         "Bairro": "Centro",<br />
-        "Observação": "Observação importante",<br />
-        "Cartao": 100.00,<br />
+        "Observacao": "Observação importante",<br />
+        "LojaPolimedica": "Loja",<br />
+        "PedidoNf": "Orç:13789",<br />
+        "Dinheiro": 120.5,<br />
+        "Troco": 9.50,<br />
         "Vendedor": "Leticia",<br />
-        "Numero": "ORç:12345",<br />
-        "Pagamento": 20.00,<br />
-        "Troco": 10.00,<br />
         "Responsavel": "Alice"<br />
         }<br />
         <br />
@@ -73,21 +74,21 @@
     <br />
     <p>
 
-        PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/6<br />
+        PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/{id}<br />
         Accept: application/json<br />
         Content-Type: application/json<br />
         <br />
         {<br />
-        "Cliente": "Luiz Célio Gomes Filho",<br />
-        "Cidade": "Roseira",<br />
-        "Bairro": "Vila Velha",<br />
-        "Observação": "Observação importante alterada",<br />
-        "Cartao": 150.00,<br />
-        "Vendedor": "alice",<br />
-        "Numero": "ORÇ:12345",<br />
-        "Pagamento": 25.00,<br />
-        "Troco": 5.00,<br />
-        "Responsavel": "Leticia"<br />
+        "Cliente": "Luiz Célio",<br />
+        "Data": "2026-10-17",<br />
+        "Cidade": "Aparecida",<br />
+        "Bairro": "Centro",<br />
+        "Observacao": "Observação importante",<br />
+        "Cartao": 100.00,<br />
+        "LojaPolimedica": "Loja",<br />
+        "PedidoNf": "Orç:13789",<br />
+        "Vendedor": "Leticia",<br />
+        "Responsavel": "Alice"<br />
         }<br />
         <br />
     </p>

@@ -20,10 +20,11 @@ Content-Type: application/json
   "Bairro": "Centro",
   "Observacao": "Observação importante",
   "Cartao": 100.00,
+  "LojaPolimedica": "Loja",
+  "PedidoNf": "Orç:13789",
+  "Dinheiro": 127.5,
+  "Troco": 2.50,
   "Vendedor": "Leticia",
-  "Numero": "ORç:12345",
-  "Pagamento": 20.00,
-  "Troco": 10.00,
   "Responsavel": "Alice"
 }
 
@@ -34,21 +35,21 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Data": "2026-10-01",
   "Cliente": "Luiz Célio",
+  "Data": "2026-10-17",
   "Cidade": "Aparecida",
   "Bairro": "Centro",
   "Observacao": "Observação importante",
-  "Cartao": 100.00,
+  "LojaPolimedica": "Loja",
+  "PedidoNf": "Orç:13789",
+  "Dinheiro": 120.5,
+  "Troco": 9.50,
   "Vendedor": "Leticia",
-  "Numero": "ORç:12345",
-  "Pagamento": 20.00,
-  "Troco": 10.00,
   "Responsavel": "Alice"
 }
 
 ###
-PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/6
+PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/3
 Accept: application/json
 Content-Type: application/json
 
@@ -57,11 +58,10 @@ Content-Type: application/json
   "Cidade": "Roseira",
   "Bairro": "Vila Velha",
   "Observacao": "Observação importante alterada",
-  "Cartao": 150.00,
+  "DinheiroCheque": 120.5,
+  "Troco": 9.50,
   "Vendedor": "alice",
   "Numero": "ORÇ:12345",
-  "Pagamento": 25.00,
-  "Troco": 5.00,
   "Responsavel": "Leticia"
 }
 

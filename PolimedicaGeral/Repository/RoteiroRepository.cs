@@ -1,4 +1,5 @@
-﻿using PolimedicaGeral.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PolimedicaGeral.Data;
 using PolimedicaGeral.DTO;
 using PolimedicaGeral.Interface;
 using PolimedicaGeral.Models;
@@ -21,6 +22,15 @@ namespace PolimedicaGeral.Repository
 
         public async Task<IResult> Create(RoteiroDto roteiro)
         {
+            //Confere se já tem esse cliente no roteiro do dia
+            var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && (r.Data == roteiro.Data || roteiro.Data == null ));
+
+            if (roteirocliente != null)
+            {
+                //return Results.BadRequest("Entrega já cadastrada.");
+                return Results.Json(new { mensagem = "Entrega já cadastrada." }, statusCode: 400);
+            }
+
             if (roteiro != null)
             {
                 var novoRoteiro = new Roteiro
@@ -41,13 +51,10 @@ namespace PolimedicaGeral.Repository
                         roteiro.PedidoNf : null!,
                     DinheiroCheque = roteiro.DinheiroCheque,
                     Troco = roteiro.Troco,
-                    Vendedor = await _checkAddRoteiro.CheckRoteiro(roteiro.Vendedor,"Vendedor") == Results.Ok() ?
+                    Vendedor = await _checkAddRoteiro.CheckRoteiro(roteiro.Vendedor!,"Vendedor") == Results.Ok() ?
                         roteiro.Vendedor : null!,
                     Responsavel = await _checkAddRoteiro.CheckRoteiro(roteiro.Responsavel!, "Responsável por colocar no roteiro") == Results.Ok() ?
                         roteiro.Responsavel : null!,
-                    
-                    
-                    
                 };
 
                 await _context.Roteiros.AddAsync(novoRoteiro);
@@ -122,10 +129,6 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.PedidoNf = _checaUpdate.CheckUpdateString(roteiroVelho.PedidoNf!, roteiroAtual.PedidoNf!);
                     roteiroVelho.DinheiroCheque = _checaUpdate.CheckUpdateNumber(roteiroVelho.DinheiroCheque!, roteiroAtual.DinheiroCheque!);
                     roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor!, roteiroAtual.Vendedor!);
-                    
-                    
-                    //roteiroVelho.Numero = _checaUpdate.CheckUpdateString(roteiroVelho.Numero, roteiroAtual.Numero)!;
-                    //roteiroVelho.Pagamento = _checaUpdate.CheckUpdateNumber(roteiroVelho.Pagamento, roteiroAtual.Pagamento);
                     roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
                     roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
                 };
