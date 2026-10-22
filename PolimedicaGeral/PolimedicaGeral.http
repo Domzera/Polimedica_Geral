@@ -8,6 +8,10 @@ Accept: application/json
 GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/10/01
 Accept: application/json
 
+{
+  Data:2026/10/01
+}
+
 ###
 
 POST {{PolimedicaGeral_HostAddress}}/polimedica/roteiro
@@ -25,7 +29,8 @@ Content-Type: application/json
   "Dinheiro": 127.5,
   "Troco": 2.50,
   "Vendedor": "Leticia",
-  "Responsavel": "Alice"
+  "Responsavel": "Alice",
+  "Periodo": "3"
 }
 
 ### Com data diferente da de hoje
@@ -45,7 +50,8 @@ Content-Type: application/json
   "Dinheiro": 120.5,
   "Troco": 9.50,
   "Vendedor": "Leticia",
-  "Responsavel": "Alice"
+  "Responsavel": "Alice",
+  "Periodo": "2"
 }
 
 ###
@@ -62,7 +68,8 @@ Content-Type: application/json
   "Troco": 9.50,
   "Vendedor": "alice",
   "Numero": "ORÇ:12345",
-  "Responsavel": "Leticia"
+  "Responsavel": "Leticia",
+  "Periodo": "4"
 }
 
 ###

@@ -32,6 +32,7 @@ CREATE TABLE [Roteiros] (
     [Vendedor] nvarchar(max) NULL,
     [Responsavel] nvarchar(max) NULL,
     [Data] date NOT NULL,
+    [Periodo] nvarchar(max) NULL,
     [Entregue] bit NOT NULL,
     CONSTRAINT [PK_Roteiros] PRIMARY KEY ([Id])
 );

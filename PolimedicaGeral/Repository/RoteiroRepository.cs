@@ -55,6 +55,8 @@ namespace PolimedicaGeral.Repository
                         roteiro.Vendedor : null!,
                     Responsavel = await _checkAddRoteiro.CheckRoteiro(roteiro.Responsavel!, "Responsável por colocar no roteiro") == Results.Ok() ?
                         roteiro.Responsavel : null!,
+                    Periodo = await _checkAddRoteiro.CheckRoteiro(roteiro.Periodo!, "Manhã, tarde") == Results.Ok() ?
+                        roteiro.Periodo : null!,
                 };
 
                 await _context.Roteiros.AddAsync(novoRoteiro);
@@ -131,7 +133,9 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor!, roteiroAtual.Vendedor!);
                     roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
                     roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
-                };
+                    roteiroVelho.Periodo = _checaUpdate.CheckUpdateString(roteiroVelho.Periodo!, roteiroAtual.Responsavel!);
+                }
+                ;
 
                 _context.Update(roteiroVelho);
                 await _context.SaveChangesAsync();

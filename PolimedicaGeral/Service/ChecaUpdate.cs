@@ -20,16 +20,14 @@ namespace PolimedicaGeral.Service
 
         public decimal CheckUpdateNumber(decimal velho, decimal novo)
         {
-            if (velho != novo)
+            if(!novo.Equals(0))
             {
-                if (novo.Equals(""))
+                if(novo != velho)
                 {
-                    return novo=0;
+                    velho = novo;
                 }
-                return novo;
             }
-
-            return velho;
+            return velho ;
         }
     }
 }
