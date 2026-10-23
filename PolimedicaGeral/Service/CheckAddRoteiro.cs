@@ -2,22 +2,26 @@
 {
     public class CheckAddRoteiro
     {
-
-        //Vai verificar se cada campo não está nulo ou vazio.
-        public async Task<IResult> CheckRoteiro(string atributo,string nomeCampo)
+        public string ChecaString(string atributo, string nomeCampo)
         {
-            if (String.IsNullOrEmpty(atributo)) // Checa se o campo ATRIBUTO está vazio ou nulo.
+            //Verifica se os campos estão vazios
+            if (string.IsNullOrEmpty(atributo))
             {
-                var erros = new Dictionary<string, string[]> // Cria um Texto de ERRO para o retorno.
-                {
-                    // A primeira STRING é 'nameof e a segunda é a mensagem de erro.
-                    {nameof(atributo), new string[] { $"O campo {nomeCampo} não pode ser nulo ou vazio." }  }
-                };
-                return Results.ValidationProblem(erros); // Retorna o ERRO de validação.
+                //Se estiver vazio adiciona a mensagem com o nome do Campo na string
+                return $"O {nomeCampo} não pode ser vazio.\n";
             }
-            Console.WriteLine($"Campo {nomeCampo} preenchido corretamente: {atributo}"); // Loga no console que o campo está correto.
-
-            return Results.Ok(); // Retorna OK se o campo ATRIBUTO estiver preenchido corretamente.
+            //Se estiver preenchido retorna vazio para continuar a verificação
+            return "";
+        }
+        public decimal SetDecimal(Decimal atributo) {
+            //Verifica se o valor veio VAZIO ou com ZERO
+            if(atributo.Equals("") || atributo == 0)
+            {
+                //Se o valor for VAZIO ou ZERO, ele recebe 0,0 para ser salvo sem problemas no BD
+                return 0.0m;
+            }
+            // Se ele vier com valor, ele é retornado sem problemas
+            return atributo;
         }
     }
 }

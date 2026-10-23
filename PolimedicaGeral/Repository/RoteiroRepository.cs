@@ -31,32 +31,34 @@ namespace PolimedicaGeral.Repository
                 return Results.Json(new { mensagem = "Entrega já cadastrada." }, statusCode: 400);
             }
 
-            if (roteiro != null)
+            string validator = "";
+            validator = _checkAddRoteiro.ChecaString(roteiro.Cliente, "Cliente");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Cidade, "Cidade");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Bairro, "Bairro");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Observacao, "Observação");
+            validator = _checkAddRoteiro.ChecaString(roteiro.LojaPolimedica, "Loja/Polimédica");
+            validator = _checkAddRoteiro.ChecaString(roteiro.PedidoNf, "Pedido/NF");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Vendedor, "Vendedora");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Responsavel, "Responsavel");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Periodo, "Periodo");
+
+            if (validator == "" && roteiro != null)
             {
                 var novoRoteiro = new Roteiro
                 {
-                    Data = roteiro.Data ??  DateOnly.FromDateTime(DateTime.Now),
-                    Cliente = await _checkAddRoteiro.CheckRoteiro(roteiro.Cliente!,"Cliente") == Results.Ok() ?
-                        roteiro.Cliente : null!,
-                    Cidade = await _checkAddRoteiro.CheckRoteiro(roteiro.Cidade!,"Cidade") == Results.Ok() ?
-                        roteiro.Cidade : null!,
-                    Bairro = await _checkAddRoteiro.CheckRoteiro(roteiro.Bairro!,"Bairro") == Results.Ok() ?
-                       roteiro.Bairro : null!,
-                    Observacao = await _checkAddRoteiro.CheckRoteiro(roteiro.Observacao!,"Observação") == Results.Ok() ?
-                        roteiro.Observacao : null!,
-                    Cartao = roteiro.Cartao,
-                    LojaPolimedica = await _checkAddRoteiro.CheckRoteiro(roteiro.LojaPolimedica!,"Loja_Polimedica") == Results.Ok() ?
-                        roteiro.LojaPolimedica : null!,
-                    PedidoNf = await _checkAddRoteiro.CheckRoteiro(roteiro.PedidoNf!, "Número/NF da venda") == Results.Ok() ?
-                        roteiro.PedidoNf : null!,
-                    DinheiroCheque = roteiro.DinheiroCheque,
-                    Troco = roteiro.Troco,
-                    Vendedor = await _checkAddRoteiro.CheckRoteiro(roteiro.Vendedor!,"Vendedor") == Results.Ok() ?
-                        roteiro.Vendedor : null!,
-                    Responsavel = await _checkAddRoteiro.CheckRoteiro(roteiro.Responsavel!, "Responsável por colocar no roteiro") == Results.Ok() ?
-                        roteiro.Responsavel : null!,
-                    Periodo = await _checkAddRoteiro.CheckRoteiro(roteiro.Periodo!, "Manhã, tarde") == Results.Ok() ?
-                        roteiro.Periodo : null!,
+                    Data = roteiro.Data ?? DateOnly.FromDateTime(DateTime.Now),
+                    Cliente = roteiro.Cliente,
+                    Cidade = roteiro.Cidade,
+                    Bairro = roteiro.Bairro,
+                    Observacao = roteiro.Observacao,
+                    Cartao = _checkAddRoteiro.SetDecimal(roteiro.Cartao),
+                    LojaPolimedica = roteiro.LojaPolimedica,
+                    PedidoNf = roteiro.PedidoNf,
+                    DinheiroCheque = _checkAddRoteiro.SetDecimal(roteiro.DinheiroCheque),
+                    Troco = _checkAddRoteiro.SetDecimal(roteiro.Troco),
+                    Vendedor = roteiro.Vendedor,
+                    Responsavel = roteiro.Responsavel,
+                    Periodo = roteiro.Periodo,
                 };
 
                 await _context.Roteiros.AddAsync(novoRoteiro);
@@ -66,7 +68,8 @@ namespace PolimedicaGeral.Repository
             }
             else
             {
-                throw new Exception("Roteiro não pode ser adicionado");
+                return Results.Json(new { mensagem = validator }, statusCode: 400);
+                //throw new Exception("Roteiro não pode ser adicionado");
             }
         }
 

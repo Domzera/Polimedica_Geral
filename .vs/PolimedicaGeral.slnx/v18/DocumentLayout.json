@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|c:\\users\\alice\\desktop\\polimedica geral\\polimedicageral\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F4339C0-EDAE-F6A0-502C-C4A235E76980}|PolimedicaGeral\\PolimedicaGeral.csproj|solutionrelative:polimedicageral\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 816,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,19 +38,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "PolimedicaGeral\\wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\Alice\\Desktop\\Polimedica Geral\\PolimedicaGeral\\wwwroot\\index.html",
-              "RelativeToolTip": "PolimedicaGeral\\wwwroot\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-10-23T10:49:31.135Z",
-              "EditorCaption": ""
             }
           ]
         }
