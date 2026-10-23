@@ -59,6 +59,7 @@ namespace PolimedicaGeral.Repository
                     Vendedor = roteiro.Vendedor,
                     Responsavel = roteiro.Responsavel,
                     Periodo = roteiro.Periodo,
+                    Entregue = false
                 };
 
                 await _context.Roteiros.AddAsync(novoRoteiro);
