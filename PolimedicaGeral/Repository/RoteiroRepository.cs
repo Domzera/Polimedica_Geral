@@ -25,7 +25,7 @@ namespace PolimedicaGeral.Repository
             //Confere se já tem esse cliente no roteiro do dia
             var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && (r.Data == roteiro.Data || roteiro.Data == null ));
 
-            if (roteirocliente != null)
+            if (roteirocliente == null)
             {
                 //return Results.BadRequest("Entrega já cadastrada.");
                 return Results.Json(new { mensagem = "Entrega já cadastrada." }, statusCode: 400);
@@ -65,12 +65,13 @@ namespace PolimedicaGeral.Repository
                 await _context.Roteiros.AddAsync(novoRoteiro);
                 var result = await _context.SaveChangesAsync();
 
-                return result > 0 ? Results.Ok("Roteiro adicionado com sucesso") : Results.Problem("Erro ao adicionar roteiro");
+                return result > 0
+                    ? Results.Ok(new { sucesso = true, mensagem = "Roteiro adicionado com sucesso" })
+                    : Results.Problem(detail:"Erro ao adicionar roteiro",statusCode: 400);
             }
             else
             {
                 return Results.Json(new { mensagem = validator }, statusCode: 400);
-                //throw new Exception("Roteiro não pode ser adicionado");
             }
         }
 
@@ -80,13 +81,13 @@ namespace PolimedicaGeral.Repository
 
             if (roteiro == null)
             {
-                return Results.NotFound("Roteiro not found.");
+                return Results.Json(new { mensagem = "Roteiro not found." }, statusCode: 400);
             }
 
             _context.Roteiros.Remove(roteiro);
             await _context.SaveChangesAsync();
 
-            return Results.Ok($"Roteiro deleted: {roteiro.Cliente}");
+            return Results.Json(new { mensagem = $"Roteiro deleted: {roteiro.Cliente}" },statusCode: 200 );
         }
 
         public Task<IResult> Get()
