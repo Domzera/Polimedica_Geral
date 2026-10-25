@@ -19,12 +19,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Cliente": "Regina",
-  "Cidade": "Aparecida",
-  "Bairro": "Centro",
-  "Observacao": "Observação importante",
+  "Cliente": "Luiz",
+  "Cidade": "Roseira",
+  "Bairro": "Vila Velha",
+  "Observacao": "Entregar e Receber",
   "LojaPolimedica": "Loja",
-  "PedidoNf": "Orç:13789",
+  "PedidoNf": "Orç:13777",
   "Dinheiro": 127.5,
   "Troco": 2.50,
   "Vendedor": "Leticia",

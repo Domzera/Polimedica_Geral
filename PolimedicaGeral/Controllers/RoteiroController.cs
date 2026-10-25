@@ -45,16 +45,11 @@ namespace PolimedicaGeral.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(RoteiroDto roteiro)
+        public async Task<IResult> Create(RoteiroDto roteiro)
         {
-            var novoRoteiro = await _roteiro.Create(roteiro);
+            IResult novoRoteiro = await _roteiro.Create(roteiro);
 
-            if (novoRoteiro == null)
-            {
-                return BadRequest("Failed to create roteiro.");
-            }
-
-            return Ok($"Roteiro received: {novoRoteiro}");
+            return novoRoteiro;
         }
 
         [HttpDelete("{id:int}")]
