@@ -96,7 +96,7 @@ namespace PolimedicaGeral.Repository
             return Results.Json(new { mensagem = $"Roteiro deleted: {roteiro.Cliente}" },statusCode: 200 );
         }
 
-        public Task<IResult> Get()
+        public async Task<IResult> Get()
         {
             var data = DateOnly.FromDateTime(DateTime.Now);
 
@@ -104,22 +104,22 @@ namespace PolimedicaGeral.Repository
 
             if (roteiros == null || !roteiros.Any())
             {
-                return Task.FromResult(Results.NotFound("Nenhum roteiro encontrado para a data especificada."));
+                return Results.Json(new { mensagem = "Nenhum Roteiro encontrado." }, statusCode: 400);
             }
 
-            return Task.FromResult(Results.Ok(roteiros));
+            return Results.Json(roteiros, statusCode: 200);
         }
 
-        public Task<IResult> GetComData(DateOnly data)
+        public async Task<IResult> GetComData(DateOnly data)
         {
             var roteiros = _context.Roteiros.Where(r => r.Data == data).ToList();
 
             if(roteiros == null || !roteiros.Any())
             {
-                return Task.FromResult(Results.NotFound("Nenhum roteiro encontrado para a data especificada."));
+                return Results.Json(new { mensagem = "Nenhum roteiro encontrado para a data especificada." }, statusCode:400);
             }
 
-            return Task.FromResult(Results.Ok(roteiros));
+            return Results.Json(roteiros, statusCode: 200);
         }
 
         public async Task<IResult> Update(int id,RoteiroDto roteiroAtual)
@@ -128,7 +128,7 @@ namespace PolimedicaGeral.Repository
 
             if (roteiroVelho == null)
             {
-                return Results.NotFound("Roteiro not found.");
+                return Results.Json(new {mensagem = "Roteiro não encontrado."}, statusCode: 400);
             }
             else
             {
@@ -145,13 +145,10 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
                     roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
                     roteiroVelho.Periodo = _checaUpdate.CheckUpdateString(roteiroVelho.Periodo!, roteiroAtual.Responsavel!);
-                }
-                ;
-
+                };
                 _context.Update(roteiroVelho);
                 await _context.SaveChangesAsync();
-                return Results.Ok($"Roteiro updated:{roteiroVelho.Cliente}");
-
+                return Results.Json(new {mensagem = $"Roteiro updated:{roteiroVelho.Cliente}" }, statusCode: 200);
             }
         }
     }
