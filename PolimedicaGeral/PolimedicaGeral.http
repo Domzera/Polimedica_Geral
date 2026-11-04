@@ -54,21 +54,33 @@ Content-Type: application/json
 }
 
 ###
-PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/3
+PUT {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2
 Accept: application/json
 Content-Type: application/json
 
 {
-  "Cliente": "Luiz Célio Gomes Filho",
-  "Cidade": "Roseira",
-  "Bairro": "Vila Velha",
-  "Observacao": "Observação importante alterada",
-  "DinheiroCheque": 120.5,
-  "Troco": 9.50,
-  "Vendedor": "alice",
-  "Numero": "ORÇ:12345",
-  "Responsavel": "Leticia",
-  "Periodo": "4"
+    "cliente": "Luiz Gustavo",
+    "cidade": "Guaratinguetá",
+    "bairro": "Centro",
+    "observacao": "Observação Receber",
+    "cartao": 0.00,
+    "lojaPolimedica": "Loja",
+    "pedidoNf": "Orç: 15478",
+    "dinheiroCheque": 97.25,
+    "troco": 2.75,
+    "vendedor": "Leticia",
+    "responsavel": "Alice",
+    "data": "2026-10-23",
+    "periodo": "2",
+    "entregue": null
 }
 
 ###
+DELETE {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/3
+Accept: application/json
+Content-Type: application/json
+
+###
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2
+Accept: application/json
+Content-Type: application/json

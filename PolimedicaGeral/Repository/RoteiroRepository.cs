@@ -110,6 +110,17 @@ namespace PolimedicaGeral.Repository
             return Results.Json(roteiros, statusCode: 200);
         }
 
+        public Task<IResult> GetById(int id)
+        {
+            var roteiro = _context.Roteiros.FirstOrDefault(r => r.Id == id);
+            if(roteiro == null)
+            {
+                return Task.FromResult(Results.Json(new { mensagem = "Roteiro not found." }, statusCode: 400) as IResult);
+            }
+            
+            return Task.FromResult(Results.Json(roteiro, statusCode: 200) as IResult);
+        }
+
         public async Task<IResult> GetComData(DateOnly data)
         {
             var roteiros = _context.Roteiros.Where(r => r.Data == data).ToList();
@@ -133,18 +144,31 @@ namespace PolimedicaGeral.Repository
             else
             {
                 {
-                    roteiroVelho.Cliente = _checaUpdate.CheckUpdateString(roteiroVelho.Cliente!, roteiroAtual.Cliente!);
-                    roteiroVelho.Cidade = _checaUpdate.CheckUpdateString(roteiroVelho.Cidade!, roteiroAtual.Cidade!);
-                    roteiroVelho.Bairro = _checaUpdate.CheckUpdateString(roteiroVelho.Bairro!, roteiroAtual.Bairro!);
-                    roteiroVelho.Observacao = _checaUpdate.CheckUpdateString(roteiroVelho.Observacao!, roteiroAtual.Observacao!);
-                    roteiroVelho.Cartao = _checaUpdate.CheckUpdateNumber(roteiroVelho.Cartao, roteiroAtual.Cartao);
-                    roteiroVelho.LojaPolimedica = _checaUpdate.CheckUpdateString(roteiroVelho.LojaPolimedica!, roteiroAtual.LojaPolimedica!);
-                    roteiroVelho.PedidoNf = _checaUpdate.CheckUpdateString(roteiroVelho.PedidoNf!, roteiroAtual.PedidoNf!);
-                    roteiroVelho.DinheiroCheque = _checaUpdate.CheckUpdateNumber(roteiroVelho.DinheiroCheque!, roteiroAtual.DinheiroCheque!);
-                    roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor!, roteiroAtual.Vendedor!);
-                    roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
-                    roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
-                    roteiroVelho.Periodo = _checaUpdate.CheckUpdateString(roteiroVelho.Periodo!, roteiroAtual.Responsavel!);
+                    //roteiroVelho.Cliente = _checaUpdate.CheckUpdateString(roteiroVelho.Cliente!, roteiroAtual.Cliente!);
+                    //roteiroVelho.Cidade = _checaUpdate.CheckUpdateString(roteiroVelho.Cidade!, roteiroAtual.Cidade!);
+                    //roteiroVelho.Bairro = _checaUpdate.CheckUpdateString(roteiroVelho.Bairro!, roteiroAtual.Bairro!);
+                    //roteiroVelho.Observacao = _checaUpdate.CheckUpdateString(roteiroVelho.Observacao!, roteiroAtual.Observacao!);
+                    //roteiroVelho.Cartao = _checaUpdate.CheckUpdateNumber(roteiroVelho.Cartao, roteiroAtual.Cartao);
+                    //roteiroVelho.LojaPolimedica = _checaUpdate.CheckUpdateString(roteiroVelho.LojaPolimedica!, roteiroAtual.LojaPolimedica!);
+                    //roteiroVelho.PedidoNf = _checaUpdate.CheckUpdateString(roteiroVelho.PedidoNf!, roteiroAtual.PedidoNf!);
+                    //roteiroVelho.DinheiroCheque = _checaUpdate.CheckUpdateNumber(roteiroVelho.DinheiroCheque!, roteiroAtual.DinheiroCheque!);
+                    //roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor!, roteiroAtual.Vendedor!);
+                    //roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
+                    //roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
+                    //roteiroVelho.Periodo = _checaUpdate.CheckUpdateString(roteiroVelho.Periodo!, roteiroAtual.Periodo!);
+
+                    roteiroVelho.Cliente = roteiroAtual.Cliente == roteiroVelho.Cliente ? roteiroVelho.Cliente : roteiroAtual.Cliente;
+                    roteiroVelho.Cidade = roteiroAtual.Cidade == roteiroVelho.Cidade ? roteiroVelho.Cidade : roteiroAtual.Cidade;
+                    roteiroVelho.Bairro = roteiroAtual.Bairro == roteiroVelho.Bairro ? roteiroVelho.Bairro : roteiroAtual.Bairro;
+                    roteiroVelho.Observacao = roteiroAtual.Observacao == roteiroVelho.Observacao ? roteiroVelho.Observacao : roteiroAtual.Observacao;
+                    roteiroVelho.Cartao = roteiroAtual.Cartao == roteiroVelho.Cartao ? roteiroVelho.Cartao : roteiroAtual.Cartao;
+                    roteiroVelho.LojaPolimedica = roteiroAtual.LojaPolimedica == roteiroVelho.LojaPolimedica ? roteiroVelho.LojaPolimedica : roteiroAtual.LojaPolimedica;
+                    roteiroVelho.PedidoNf = roteiroAtual.PedidoNf == roteiroVelho.PedidoNf ? roteiroVelho.PedidoNf : roteiroAtual.PedidoNf;
+                    roteiroVelho.DinheiroCheque = roteiroAtual.DinheiroCheque == roteiroVelho.DinheiroCheque ? roteiroVelho.DinheiroCheque : roteiroAtual.DinheiroCheque;
+                    roteiroVelho.Vendedor = roteiroAtual.Vendedor == roteiroVelho.Vendedor ? roteiroVelho.Vendedor : roteiroAtual.Vendedor;
+                    roteiroVelho.Troco = roteiroAtual.Troco == roteiroVelho.Troco ? roteiroVelho.Troco : roteiroAtual.Troco;
+                    roteiroVelho.Responsavel = roteiroAtual.Responsavel == roteiroVelho.Responsavel ? roteiroVelho.Responsavel : roteiroAtual.Responsavel;
+                    roteiroVelho.Periodo = roteiroAtual.Periodo == roteiroVelho.Periodo ? roteiroVelho.Periodo : roteiroAtual.Periodo;
                 };
                 _context.Update(roteiroVelho);
                 await _context.SaveChangesAsync();

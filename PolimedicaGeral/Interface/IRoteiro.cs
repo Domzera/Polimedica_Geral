@@ -14,6 +14,7 @@ namespace PolimedicaGeral.Interface
         Task<IResult> Update(int id,RoteiroDto novo);
         Task<IResult> Delete(int id);
         Task<IResult> Create(RoteiroDto roteiro);
+        Task<IResult> GetById(int id);
 
     }
 }
