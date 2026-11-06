@@ -155,6 +155,7 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Troco = roteiroAtual.Troco == roteiroVelho.Troco ? roteiroVelho.Troco : roteiroAtual.Troco;
                     roteiroVelho.Responsavel = roteiroAtual.Responsavel == roteiroVelho.Responsavel ? roteiroVelho.Responsavel : roteiroAtual.Responsavel;
                     roteiroVelho.Periodo = roteiroAtual.Periodo == roteiroVelho.Periodo ? roteiroVelho.Periodo : roteiroAtual.Periodo;
+                    roteiroVelho.Data = roteiroAtual.Data == roteiroVelho.Data ? roteiroVelho.Data : roteiroAtual.Data;
                 };
                 _context.Update(roteiroVelho);
                 await _context.SaveChangesAsync();

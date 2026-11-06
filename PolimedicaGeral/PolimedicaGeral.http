@@ -68,7 +68,7 @@ Content-Type: application/json
     "troco": 2.75,
     "vendedor": "Leticia",
     "responsavel": "Alice",
-    "data": "2026-10-23",
+    "data": "2026-11-09",
     "periodo": "2",
     "entregue": null
 }
