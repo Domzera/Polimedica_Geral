@@ -24,7 +24,6 @@ Content-Type: application/json
   "Bairro": "Vila Velha",
   "Observacao": "Entregar e Receber",
   "LojaPolimedica": "Loja",
-  "PedidoNf": "Orç:13777",
   "Dinheiro": 127.5,
   "Troco": 2.50,
   "Vendedor": "Leticia",

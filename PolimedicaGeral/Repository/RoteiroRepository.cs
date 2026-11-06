@@ -25,17 +25,16 @@ namespace PolimedicaGeral.Repository
             //Confere se já tem esse cliente no roteiro do dia
             if (roteiro.Data == null) roteiro.Data = DateOnly.FromDateTime(DateTime.Now);
             
-            Console.WriteLine("Data da entrada: " + roteiro.Data);
-            
             var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && r.Data == roteiro.Data);
-            var pedido = await _context.Roteiros.FirstOrDefaultAsync(r => r.PedidoNf == roteiro.PedidoNf);
 
-            // Se tem um cadastro no Roteiro então roteirocliente é != null
-            // Se não tem um cadastro no Roteiro então roteirocliente é == null
-            // Se ele é == null então o IF é verdadeiro e não tem cadastro no Roteiro
-            if (roteirocliente != null) return Results.Problem(detail: "Entrega já cadastrada.", statusCode: 400);
+            var pedido = await _context.Roteiros.FirstOrDefaultAsync
+                (r => r.PedidoNf != roteiro.PedidoNf || roteiro.PedidoNf == null || roteiro.PedidoNf.Equals(""));
+
+            Console.WriteLine("Pedido: " + roteiro.PedidoNf);
+
+            if (roteirocliente != null) return Results.Problem(detail: "Entrega já cadastrada para hoje.", statusCode: 400);
             
-            if (pedido != null) return Results.Problem(detail: "Numero de Pedido ou Nf já cadastrado", statusCode: 400);
+            if (pedido == null) return Results.Problem(detail: "Numero de Pedido ou Nf já cadastrado", statusCode: 400);
 
             string validator = "";
             validator = _checkAddRoteiro.ChecaString(roteiro.Cliente, "Cliente");
