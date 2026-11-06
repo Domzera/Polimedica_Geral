@@ -94,7 +94,6 @@ namespace PolimedicaGeral.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PedidoNf")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Periodo")

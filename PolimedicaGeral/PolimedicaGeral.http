@@ -39,13 +39,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Cliente": "Luiz Célio",
-  "Data": "2026-10-17",
+  "Cliente": "Alice Gomes",
+  "Data": "2026-11-06",
   "Cidade": "Aparecida",
   "Bairro": "Centro",
-  "Observacao": "Observação importante",
+  "Observacao": "Entregar e Receber",
   "LojaPolimedica": "Loja",
-  "PedidoNf": "Orç:13789",
   "Dinheiro": 120.5,
   "Troco": 9.50,
   "Vendedor": "Leticia",

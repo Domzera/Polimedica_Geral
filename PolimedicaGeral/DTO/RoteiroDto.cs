@@ -11,7 +11,7 @@ namespace PolimedicaGeral.DTO
         [Precision(18, 2)]
         public Decimal Cartao { get; set; }
         public string LojaPolimedica { get; set; }
-        public string PedidoNf { get; set; }
+        public string? PedidoNf { get; set; }
         [Precision(18, 2)]
         public Decimal DinheiroCheque { get; set; }
         [Precision(18, 2)]

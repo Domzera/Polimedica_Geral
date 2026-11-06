@@ -28,7 +28,7 @@ namespace PolimedicaGeral.Repository
             Console.WriteLine("Data da entrada: " + roteiro.Data);
             
             var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && r.Data == roteiro.Data);
-            var pedido = await _context.Roteiros.FirstOrDefaultAsync(r => r.PedidoNf! == roteiro.PedidoNf);
+            var pedido = await _context.Roteiros.FirstOrDefaultAsync(r => r.PedidoNf == roteiro.PedidoNf);
 
             // Se tem um cadastro no Roteiro então roteirocliente é != null
             // Se não tem um cadastro no Roteiro então roteirocliente é == null
@@ -43,7 +43,6 @@ namespace PolimedicaGeral.Repository
             validator = _checkAddRoteiro.ChecaString(roteiro.Bairro, "Bairro");
             validator = _checkAddRoteiro.ChecaString(roteiro.Observacao, "Observação");
             validator = _checkAddRoteiro.ChecaString(roteiro.LojaPolimedica, "Loja/Polimédica");
-            validator = _checkAddRoteiro.ChecaString(roteiro.PedidoNf, "Pedido/NF");
             validator = _checkAddRoteiro.ChecaString(roteiro.Vendedor, "Vendedora");
             validator = _checkAddRoteiro.ChecaString(roteiro.Responsavel, "Responsavel");
             validator = _checkAddRoteiro.ChecaString(roteiro.Periodo, "Periodo");
@@ -59,7 +58,8 @@ namespace PolimedicaGeral.Repository
                     Observacao = roteiro.Observacao,
                     Cartao = _checkAddRoteiro.SetDecimal(roteiro.Cartao),
                     LojaPolimedica = roteiro.LojaPolimedica,
-                    PedidoNf = roteiro.PedidoNf,
+                    //PedidoNf = roteiro.PedidoNf,
+                    PedidoNf = roteiro.PedidoNf == "" || roteiro.PedidoNf == null ? "" : roteiro?.PedidoNf,
                     DinheiroCheque = _checkAddRoteiro.SetDecimal(roteiro.DinheiroCheque),
                     Troco = _checkAddRoteiro.SetDecimal(roteiro.Troco),
                     Vendedor = roteiro.Vendedor,
@@ -144,19 +144,6 @@ namespace PolimedicaGeral.Repository
             else
             {
                 {
-                    //roteiroVelho.Cliente = _checaUpdate.CheckUpdateString(roteiroVelho.Cliente!, roteiroAtual.Cliente!);
-                    //roteiroVelho.Cidade = _checaUpdate.CheckUpdateString(roteiroVelho.Cidade!, roteiroAtual.Cidade!);
-                    //roteiroVelho.Bairro = _checaUpdate.CheckUpdateString(roteiroVelho.Bairro!, roteiroAtual.Bairro!);
-                    //roteiroVelho.Observacao = _checaUpdate.CheckUpdateString(roteiroVelho.Observacao!, roteiroAtual.Observacao!);
-                    //roteiroVelho.Cartao = _checaUpdate.CheckUpdateNumber(roteiroVelho.Cartao, roteiroAtual.Cartao);
-                    //roteiroVelho.LojaPolimedica = _checaUpdate.CheckUpdateString(roteiroVelho.LojaPolimedica!, roteiroAtual.LojaPolimedica!);
-                    //roteiroVelho.PedidoNf = _checaUpdate.CheckUpdateString(roteiroVelho.PedidoNf!, roteiroAtual.PedidoNf!);
-                    //roteiroVelho.DinheiroCheque = _checaUpdate.CheckUpdateNumber(roteiroVelho.DinheiroCheque!, roteiroAtual.DinheiroCheque!);
-                    //roteiroVelho.Vendedor = _checaUpdate.CheckUpdateString(roteiroVelho.Vendedor!, roteiroAtual.Vendedor!);
-                    //roteiroVelho.Troco = _checaUpdate.CheckUpdateNumber(roteiroVelho.Troco, roteiroAtual.Troco);
-                    //roteiroVelho.Responsavel = _checaUpdate.CheckUpdateString(roteiroVelho.Responsavel!, roteiroAtual.Responsavel!);
-                    //roteiroVelho.Periodo = _checaUpdate.CheckUpdateString(roteiroVelho.Periodo!, roteiroAtual.Periodo!);
-
                     roteiroVelho.Cliente = roteiroAtual.Cliente == roteiroVelho.Cliente ? roteiroVelho.Cliente : roteiroAtual.Cliente;
                     roteiroVelho.Cidade = roteiroAtual.Cidade == roteiroVelho.Cidade ? roteiroVelho.Cidade : roteiroAtual.Cidade;
                     roteiroVelho.Bairro = roteiroAtual.Bairro == roteiroVelho.Bairro ? roteiroVelho.Bairro : roteiroAtual.Bairro;
