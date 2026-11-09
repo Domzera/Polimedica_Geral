@@ -80,6 +80,7 @@ namespace PolimedicaGeral.Controllers
             Console.WriteLine($"Roteiro updated: {updatedRoteiro}");
             return Ok($"Roteiro updated: {updatedRoteiro}");
         }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {

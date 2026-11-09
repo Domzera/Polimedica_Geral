@@ -13,7 +13,7 @@
             //Se estiver preenchido retorna vazio para continuar a verificação
             return "";
         }
-        public decimal SetDecimal(Decimal atributo) {
+        public decimal SetDecimal(Decimal? atributo) {
             //Verifica se o valor veio VAZIO ou com ZERO
             if(atributo.Equals("") || atributo == 0)
             {
@@ -21,7 +21,7 @@
                 return 0.0m;
             }
             // Se ele vier com valor, ele é retornado sem problemas
-            return atributo;
+            return atributo ?? 0.0m;
         }
     }
 }

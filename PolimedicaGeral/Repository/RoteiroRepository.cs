@@ -37,14 +37,14 @@ namespace PolimedicaGeral.Repository
             if (pedido == null) return Results.Problem(detail: "Numero de Pedido ou Nf já cadastrado", statusCode: 400);
 
             string validator = "";
-            validator = _checkAddRoteiro.ChecaString(roteiro.Cliente, "Cliente");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Cidade, "Cidade");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Bairro, "Bairro");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Observacao, "Observação");
-            validator = _checkAddRoteiro.ChecaString(roteiro.LojaPolimedica, "Loja/Polimédica");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Vendedor, "Vendedora");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Responsavel, "Responsavel");
-            validator = _checkAddRoteiro.ChecaString(roteiro.Periodo, "Periodo");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Cliente!, "Cliente");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Cidade!, "Cidade");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Bairro!, "Bairro");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Observacao!, "Observação");
+            validator = _checkAddRoteiro.ChecaString(roteiro.LojaPolimedica!, "Loja/Polimédica");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Vendedor!, "Vendedora");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Responsavel!, "Responsavel");
+            validator = _checkAddRoteiro.ChecaString(roteiro.Periodo!, "Periodo");
 
             if (validator == "" && roteiro != null)
             {
@@ -147,15 +147,16 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Cidade = roteiroAtual.Cidade == roteiroVelho.Cidade ? roteiroVelho.Cidade : roteiroAtual.Cidade;
                     roteiroVelho.Bairro = roteiroAtual.Bairro == roteiroVelho.Bairro ? roteiroVelho.Bairro : roteiroAtual.Bairro;
                     roteiroVelho.Observacao = roteiroAtual.Observacao == roteiroVelho.Observacao ? roteiroVelho.Observacao : roteiroAtual.Observacao;
-                    roteiroVelho.Cartao = roteiroAtual.Cartao == roteiroVelho.Cartao ? roteiroVelho.Cartao : roteiroAtual.Cartao;
+                    roteiroVelho.Cartao = roteiroAtual.Cartao == roteiroVelho.Cartao || roteiroAtual.Cartao == null ? roteiroVelho.Cartao : (roteiroAtual.Cartao ?? 0.0m);
                     roteiroVelho.LojaPolimedica = roteiroAtual.LojaPolimedica == roteiroVelho.LojaPolimedica ? roteiroVelho.LojaPolimedica : roteiroAtual.LojaPolimedica;
                     roteiroVelho.PedidoNf = roteiroAtual.PedidoNf == roteiroVelho.PedidoNf ? roteiroVelho.PedidoNf : roteiroAtual.PedidoNf;
-                    roteiroVelho.DinheiroCheque = roteiroAtual.DinheiroCheque == roteiroVelho.DinheiroCheque ? roteiroVelho.DinheiroCheque : roteiroAtual.DinheiroCheque;
+                    roteiroVelho.DinheiroCheque = roteiroAtual.DinheiroCheque == roteiroVelho.DinheiroCheque || roteiroAtual.DinheiroCheque == null ? roteiroVelho.DinheiroCheque : (roteiroAtual.DinheiroCheque ?? 0.0m);
                     roteiroVelho.Vendedor = roteiroAtual.Vendedor == roteiroVelho.Vendedor ? roteiroVelho.Vendedor : roteiroAtual.Vendedor;
-                    roteiroVelho.Troco = roteiroAtual.Troco == roteiroVelho.Troco ? roteiroVelho.Troco : roteiroAtual.Troco;
+                    roteiroVelho.Troco = roteiroAtual.Troco == roteiroVelho.Troco || roteiroAtual.Troco == null ? roteiroVelho.Troco :(roteiroAtual.Troco ?? 0.0m);
                     roteiroVelho.Responsavel = roteiroAtual.Responsavel == roteiroVelho.Responsavel ? roteiroVelho.Responsavel : roteiroAtual.Responsavel;
                     roteiroVelho.Periodo = roteiroAtual.Periodo == roteiroVelho.Periodo ? roteiroVelho.Periodo : roteiroAtual.Periodo;
-                    roteiroVelho.Data = roteiroAtual.Data == roteiroVelho.Data ? roteiroVelho.Data : roteiroAtual.Data;
+                    roteiroVelho.Data = roteiroAtual.Data == roteiroVelho.Data || roteiroAtual.Data == null ? roteiroVelho.Data : roteiroAtual.Data;
+                    roteiroVelho.Entregue = roteiroAtual.Entregue == roteiroVelho.Entregue || roteiroAtual.Entregue == null ? roteiroVelho.Entregue : (roteiroAtual.Entregue ?? false);
                 };
                 _context.Update(roteiroVelho);
                 await _context.SaveChangesAsync();

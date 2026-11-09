@@ -57,20 +57,18 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "cliente": "Luiz Gustavo",
-    "cidade": "Guaratinguetá",
-    "bairro": "Centro",
-    "observacao": "Observação Receber",
-    "cartao": 0.00,
-    "lojaPolimedica": "Loja",
-    "pedidoNf": "Orç: 15478",
-    "dinheiroCheque": 97.25,
-    "troco": 2.75,
-    "vendedor": "Leticia",
-    "responsavel": "Alice",
-    "data": "2026-11-09",
-    "periodo": "2",
-    "entregue": null
+  "Cliente": "Luiz Gustavo",
+  "Data": "2026-11-06",
+  "Cidade": "Guaratinguetá",
+  "Bairro": "Centro",
+  "Observacao": "Observação Receber",
+  "LojaPolimedica": "Loja",
+  "Dinheiro": 97.25,
+  "Troco": 2.75,
+  "Vendedor": "Leticia",
+  "Responsavel": "Alice",
+  "Periodo": "2",
+  "Entregue": true
 }
 
 ###
