@@ -28,7 +28,8 @@ namespace PolimedicaGeral.Repository
             var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && r.Data == roteiro.Data);
 
             var pedido = await _context.Roteiros.FirstOrDefaultAsync
-                (r => r.PedidoNf != roteiro.PedidoNf || roteiro.PedidoNf == null || roteiro.PedidoNf.Equals(""));
+                (r => r.PedidoNf != roteiro.PedidoNf || roteiro.PedidoNf == null || roteiro.PedidoNf.Equals("")
+                && r.Data != roteiro.Data);
 
             Console.WriteLine("Pedido: " + roteiro.PedidoNf);
 
@@ -59,6 +60,7 @@ namespace PolimedicaGeral.Repository
                     LojaPolimedica = roteiro.LojaPolimedica,
                     //PedidoNf = roteiro.PedidoNf,
                     PedidoNf = roteiro.PedidoNf == "" || roteiro.PedidoNf == null ? "" : roteiro?.PedidoNf,
+
                     DinheiroCheque = _checkAddRoteiro.SetDecimal(roteiro.DinheiroCheque),
                     Troco = _checkAddRoteiro.SetDecimal(roteiro.Troco),
                     Vendedor = roteiro.Vendedor,
