@@ -19,16 +19,17 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Cliente": "Luiz",
-  "Cidade": "Roseira",
+  "Cliente": "Leticia",
+  "Cidade": "Roseira Velha",
   "Bairro": "Vila Velha",
-  "Observacao": "Entregar e Receber",
+  "Observacao": "Entregar e Receber 2X",
   "LojaPolimedica": "Loja",
-  "Dinheiro": 127.5,
-  "Troco": 2.50,
-  "Vendedor": "Leticia",
-  "Responsavel": "Alice",
-  "Periodo": "3"
+  "PedidoNf": "Orç:123456",
+  "Cartao": 100.00,
+  "Vendedor": "Priscila",
+  "Responsavel": "Gisele",
+  "Periodo": "3",
+  "Data": "2026-11-10"
 }
 
 ### Com data diferente da de hoje

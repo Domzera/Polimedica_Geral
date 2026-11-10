@@ -154,7 +154,9 @@ namespace PolimedicaGeral.Repository
                     roteiroVelho.Vendedor = roteiroAtual.Vendedor == roteiroVelho.Vendedor ? roteiroVelho.Vendedor : roteiroAtual.Vendedor;
                     roteiroVelho.Troco = roteiroAtual.Troco == roteiroVelho.Troco || roteiroAtual.Troco == null ? roteiroVelho.Troco :(roteiroAtual.Troco ?? 0.0m);
                     roteiroVelho.Responsavel = roteiroAtual.Responsavel == roteiroVelho.Responsavel ? roteiroVelho.Responsavel : roteiroAtual.Responsavel;
-                    roteiroVelho.Periodo = roteiroAtual.Periodo == roteiroVelho.Periodo ? roteiroVelho.Periodo : roteiroAtual.Periodo;
+                    roteiroVelho.Periodo = roteiroAtual.Periodo == roteiroVelho.Periodo
+                        && roteiroAtual.Data == roteiroVelho.Data ? roteiroVelho.Periodo : roteiroAtual.Periodo;
+                    
                     roteiroVelho.Data = roteiroAtual.Data == roteiroVelho.Data || roteiroAtual.Data == null ? roteiroVelho.Data : roteiroAtual.Data;
                     roteiroVelho.Entregue = roteiroAtual.Entregue == roteiroVelho.Entregue || roteiroAtual.Entregue == null ? roteiroVelho.Entregue : (roteiroAtual.Entregue ?? false);
                 };
