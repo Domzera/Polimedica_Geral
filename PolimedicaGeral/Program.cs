@@ -39,5 +39,4 @@ app.UseCors(options =>
     .AllowAnyHeader());
 app.MapControllers();
 
-
 app.Run();

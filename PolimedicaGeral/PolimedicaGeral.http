@@ -5,12 +5,23 @@ Accept: application/json
 
 ###
 
-GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2026/10/01
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/pedido/Or%C3%A7:13789
 Accept: application/json
 
-{
-  Data:2026/10/01
-}
+###
+
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/name/Luiz%20C%C3%A9lio
+Accept: application/json
+
+###
+
+GET {{PolimedicaGeral_HostAddress}}/polimedica/crud/roteiro/data/2026/10/25
+Accept: application/json
+
+###
+
+GET {{PolimedicaGeral_HostAddress}}/polimedica/crud/roteiro/teste
+Accept: application/json
 
 ###
 
@@ -29,7 +40,7 @@ Content-Type: application/json
   "Vendedor": "Priscila",
   "Responsavel": "Gisele",
   "Periodo": "3",
-  "Data": "2026-11-10"
+  "Data": "2026-11-08"
 }
 
 ### Com data diferente da de hoje

@@ -27,6 +27,7 @@ namespace PolimedicaGeral.Repository
             
             var roteirocliente = await _context.Roteiros.FirstOrDefaultAsync(r => r.Cliente! == roteiro.Cliente && r.Data == roteiro.Data);
 
+            Console.WriteLine("**********Vai Conferir.");
             var pedido = await _context.Roteiros.FirstOrDefaultAsync
                 (r => r.PedidoNf != roteiro.PedidoNf || roteiro.PedidoNf == null || roteiro.PedidoNf.Equals("")
                 && r.Data != roteiro.Data);
@@ -132,6 +133,29 @@ namespace PolimedicaGeral.Repository
             }
 
             return Results.Json(roteiros, statusCode: 200);
+        }
+
+        public async Task<IResult> GetByPedido(string pedido)
+        {
+            var pedidos = _context.Roteiros.Where(r => r.PedidoNf == pedido).ToList();
+
+            if(pedidos == null || !pedidos.Any())
+            {
+                return Results.Json(new { mensagem = "Nenhum pedido encontrado com esse numero." }, statusCode: 400);
+            }
+            return Results.Json(pedidos, statusCode: 200);
+        }
+
+        public async Task<IResult> GetByName(string name)
+        {
+            var names = _context.Roteiros.Where(r => r.Cliente == name).ToList();
+
+            //if(names == null || names as RoteiroDto)
+            if (names == null || !names.Any())
+            {
+                return Results.Json(new { mensagem = "Nenhum cliente encontrado com esse nome." }, statusCode: 400);
+            }
+            return Results.Json(names, statusCode: 200);
         }
 
         public async Task<IResult> Update(int id,RoteiroDto roteiroAtual)

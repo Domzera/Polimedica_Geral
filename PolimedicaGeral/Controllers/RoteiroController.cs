@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PolimedicaGeral.DTO;
 using PolimedicaGeral.Interface;
 
 namespace PolimedicaGeral.Controllers
 {
     
     [ApiController]
-    [Route("polimedica/[controller]")]
+    //[Route("polimedica/[controller]")]
+    [Route("polimedica/roteiro")]
     public class RoteiroController : ControllerBase
     {
         private readonly IRoteiro _roteiro;
@@ -31,56 +31,6 @@ namespace PolimedicaGeral.Controllers
             return Ok(roteiros);
         }
 
-        [HttpGet("{ano:int}/{mes:int}/{dia:int}")]
-        public async Task<IActionResult> GetComData(int ano, int mes, int dia)
-        {
-            var data = new DateOnly(ano, mes, dia);
-            Console.WriteLine($"Request received at /polimedica with date: {data}");
-            var roteiros = await _roteiro.GetComData(data);
-            
-            if (roteiros == null)
-            {
-                return NotFound("No roteiros found for the specified date.");
-            }
-            Console.WriteLine($"Roteiros retrieved for {data}: {roteiros} items");
-            return Ok(roteiros);
-        }
-
-        [HttpPost]
-        public async Task<IResult> Create(RoteiroDto roteiro)
-        {
-            Console.WriteLine($"Request received at /polimedica with data: {roteiro}");
-            IResult novoRoteiro = await _roteiro.Create(roteiro);
-
-            return novoRoteiro;
-        }
-
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            Console.WriteLine($"Request received at /polimedica to delete roteiro with id: {id}");
-            var roteiro = await _roteiro.Delete(id);
-
-            if (roteiro == null)
-            {
-                return NotFound("Roteiro not found.");
-            }
-            Console.WriteLine($"Roteiro deleted: {roteiro}");
-            return Ok($"Roteiro deleted: {roteiro}");
-        }
-
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, RoteiroDto roteiro)
-        {
-            var updatedRoteiro = await _roteiro.Update(id, roteiro);
-            if (updatedRoteiro == null)
-            {
-                return NotFound("Roteiro not found.");
-            }
-            Console.WriteLine($"Roteiro updated: {updatedRoteiro}");
-            return Ok($"Roteiro updated: {updatedRoteiro}");
-        }
-
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -92,6 +42,28 @@ namespace PolimedicaGeral.Controllers
             }
             Console.WriteLine($"Roteiro retrieved: {roteiro}");
             return Ok(roteiro);
+        }
+
+        [HttpGet("pedido/{pedido}")]
+        public async Task<IActionResult> GetByPedido(string pedido)
+        {
+            var pedidos =  await _roteiro.GetByPedido(pedido);
+            Console.WriteLine($"Request received for : {pedido}");
+            if(pedidos == null)
+            {
+                return NotFound("Pedido not found.");
+            }
+            return Ok(pedidos);
+        }
+        [HttpGet("name/{name}")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            var names = await _roteiro.GetByName(name);
+            if (names == null)
+            {
+                return NotFound("Cliente not found.");
+            }
+            return Ok(names);
         }
     }
 }
