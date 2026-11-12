@@ -148,9 +148,9 @@ namespace PolimedicaGeral.Repository
 
         public async Task<IResult> GetByName(string name)
         {
-            var names = _context.Roteiros.Where(r => r.Cliente == name).ToList();
+            var names = _context.Roteiros.Where(r => r.Cliente!.ToLower().Contains(name.ToLower())).ToList();
 
-            //if(names == null || names as RoteiroDto)
+            //if(names == null || !names as RoteiroDto)
             if (names == null || !names.Any())
             {
                 return Results.Json(new { mensagem = "Nenhum cliente encontrado com esse nome." }, statusCode: 400);
