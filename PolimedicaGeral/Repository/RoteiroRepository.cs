@@ -137,7 +137,7 @@ namespace PolimedicaGeral.Repository
 
         public async Task<IResult> GetByPedido(string pedido)
         {
-            var pedidos = _context.Roteiros.Where(r => r.PedidoNf == pedido).ToList();
+            var pedidos = _context.Roteiros.Where(r => r.PedidoNf!.ToLower().Contains( pedido.ToLower())).ToList();
 
             if(pedidos == null || !pedidos.Any())
             {

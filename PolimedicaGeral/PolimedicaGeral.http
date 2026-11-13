@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/pedido/Or%C3%A7:13789
+GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/pedido/777
 Accept: application/json
 
 ###
