@@ -93,3 +93,33 @@ Content-Type: application/json
 GET {{PolimedicaGeral_HostAddress}}/polimedica/roteiro/2
 Accept: application/json
 Content-Type: application/json
+
+###
+POST {{PolimedicaGeral_HostAddress}}/polimedica/crud/vendas
+Accept: application/json
+Content-Type: application/json
+{
+  "UserId": 1,
+  "UserType": "Poli",
+  "Data": "2026-11-24",
+  "Conta": "loja",
+  "Valor": 1527.3,
+  "QuantAtend": 27
+}
+
+###
+GET {{PolimedicaGeral_HostAddress}}/polimedica/crud/vendas/11
+Accept: application/json
+
+###
+PUT {{PolimedicaGeral_HostAddress}}/polimedica/crud/vendas/1
+Accept: application/json
+Content-Type: application/json
+{
+  "UserId": 1,
+  "UserType": "Loja",
+  "Data": "2026-11-24",
+  "Conta": "loja",
+  "Valor": 1527,
+  "QuantAtend": 27
+}

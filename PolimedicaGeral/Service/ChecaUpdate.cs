@@ -1,7 +1,4 @@
 ﻿
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.IdentityModel.Tokens;
-
 namespace PolimedicaGeral.Service
 {
     public class ChecaUpdate
@@ -24,10 +21,34 @@ namespace PolimedicaGeral.Service
             {
                 if(novo != velho)
                 {
-                    velho = novo;
+                    return novo;
                 }
             }
-            return velho ;
+            return velho;
+        }
+
+        public int ChecaUpdateInteger(int velho, int novo)
+        {
+            if (!novo.Equals(0))
+            {
+                if (novo != velho)
+                {
+                    return novo;
+                }
+            }
+            return velho;
+        }
+
+        public DateOnly ChecaUpdateData(DateOnly? velha, DateOnly? nova)
+        {
+            if (!nova.Equals(0))
+            {
+                if(nova != velha)
+                {
+                    return (DateOnly)nova;
+                }
+            }
+            return (DateOnly)velha;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace PolimedicaGeral.Data
             : base(options) { }
 
         public DbSet<Roteiro> Roteiros { get; set; }
-        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Vendas> Vendas { get; set; }
         // Define your DbSets here, for example:
         // public DbSet<YourEntity> YourEntities { get; set; }
     }
